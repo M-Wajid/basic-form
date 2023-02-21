@@ -1,22 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState([{name: "w", age: 4, gender: "m" }, {name: "waj", age: 3, gender: "ma" }, {name: "waji", age: 2, gender: "mal" }]);
+  
+
+  const add_data = () => {
+    console.log(user);
+    const user4 = [{name: "kj", age: 13, gender: "male"}];
+    let arr = user.concat(user4);
+    setUser(arr);
+  }
+
+  const edit_data = () => {
+    
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={add_data}>add</button>
       </header>
     </div>
   );
