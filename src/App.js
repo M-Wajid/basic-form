@@ -1,26 +1,22 @@
 import './App.css';
 import { useState } from 'react';
+import Home from './pages/home';
+import { Routes, Route } from 'react-router-dom';
+import Add from './pages/addData';
+import Edit from './pages/editData'
+import Delete from './pages/deleteData'
 
 const App = () => {
-  const [user, setUser] = useState([{name: "w", age: 4, gender: "m" }, {name: "waj", age: 3, gender: "ma" }, {name: "waji", age: 2, gender: "mal" }]);
-  
-
-  const add_data = () => {
-    console.log(user);
-    const user4 = [{name: "kj", age: 13, gender: "male"}];
-    let arr = user.concat(user4);
-    setUser(arr);
-  }
-
-  const edit_data = () => {
-    
-  }
-
+  const [user, setUser] = useState([{ name: "Wajid", email: "wajidaman5@gmail.com", dob: "2000-18-02", ocupation: "Developer", gender: "Male" }, {name: "Aman", email: "aman5@gmail.com", dob: "2000-01-01", ocupation: "engineer", gender: "Male"}]);
+  console.log(user);
   return (
     <div className="App">
-      <header className="App-header">
-        <button onClick={add_data}>add</button>
-      </header>
+      <Routes>
+        <Route path="/" element={<Home user={user} />} />
+        <Route path="/add" element={<Add user={user} setUserData={setUser} />} />
+        <Route path="/edit" element={<Edit user={user} setUserData={setUser} />} />
+        <Route path="/delete" element={<Delete user={user} setUserData={setUser} />} />
+      </Routes>
     </div>
   );
 }
