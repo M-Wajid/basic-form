@@ -1,15 +1,14 @@
 import React from 'react'
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import './addData.css';
 
-const Add = (props) => {
+const EditPage = (props) => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    dob: "",
-    ocupation: "",
-    gender: "",
+    name: props.temp.name,
+    email: props.temp.email,
+    dob: props.temp.dob,
+    ocupation: props.temp.ocupation,
+    gender: props.temp.gender,
   });
 
   const onChangeHandler = (event) => {
@@ -34,41 +33,28 @@ const Add = (props) => {
         
         <lable>Name:</lable>
         <div>
-          <input name="name" type="text" onChange={onChangeHandler}/>
+          <input name="name" type="text" defaultValue={props.temp.name} onChange={onChangeHandler}/>
         </div>
         
         <lable>Email:</lable>
         <div>
-          <input name="email" type="text" onChange={onChangeHandler}/>
+          <input name="email" type="text" defaultValue={props.temp.email} onChange={onChangeHandler}/>
         </div>
 
         <label>Date of Birth:</label>
         <div>
-          <input name="dob" type="date" onChange={onChangeHandler}/>
+          <input name="dob" type="date" defaultValue={props.temp.dob} onChange={onChangeHandler}/>
         </div>
        
         <lable>Ocupation:</lable>
         <div>
-          <select name="ocupation" onChange={onChangeHandler}>
-            <option value="Doctor">Doctor</option>
-            <option value="Engineer">Engineer</option>
-            <option value="Developer">Developer</option>
-          </select>
+          <input name="ocupation" type="text" defaultValue={props.temp.ocupation} onChange={onChangeHandler} />
         </div>
         
         <div>
           <label>Gender:</label>
           <div>
-            <input type="radio" name="gender" value="Male" onChange={onChangeHandler}/>
-            <label>Male</label>
-          </div>
-          <div>
-            <input type="radio" name="gender" value="female" onChange={onChangeHandler}/>
-            <label>Female</label>
-          </div>
-          <div>
-            <input type="radio" name="gender" value="Other" onChange={onChangeHandler}/>
-            <label>Other</label>
+            <input name="gender" type="text" defaultValue={props.temp.gender} onChange={onChangeHandler} />
           </div>
         </div>
 
@@ -84,4 +70,4 @@ const Add = (props) => {
   );
 }
 
-export default Add;
+export default EditPage;

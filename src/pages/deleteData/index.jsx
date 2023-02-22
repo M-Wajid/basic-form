@@ -1,21 +1,25 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Delete = (props) => {
-  let tempArray = props.user;
+  const navigate = useNavigate();
   const onChangeHandler = (event) => {
-    tempArray.filter((i) => i.name !== event.target.value)
+    const filteredArray = props.user.filter((i) => i.name !== event.target.value)
+    props.setUserData(filteredArray);
   };
-  const onSubmitHandler = (event) =>{
-  event.preventDefault();
-    props.setUserData(tempArray)
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    navigate("/");
   }
-  
+
   return (
     <div>
       <form onSubmit={onSubmitHandler}>
-        <select name="name" onClick={onChangeHandler}>
-          {props.user.map((i) => (
-            <option value="name">{i.name}</option>
+        <select name="name" onChange={onChangeHandler}>
+          <option>default</option>
+          {props.user.map((i) => ( 
+            <option value={i.name}>{i.name}</option>
           ))}
         </select>
         <button type="submit">Delete</button>
