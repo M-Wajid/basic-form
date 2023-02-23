@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const EditPage = (props) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: props.temp.name,
     email: props.temp.email,
@@ -24,6 +25,7 @@ const EditPage = (props) => {
     temp.push(formData);
     console.log(temp);
     props.setUserData(temp);
+    navigate('/');
   }
 
   return (
@@ -60,9 +62,6 @@ const EditPage = (props) => {
 
         <div>
           <button type="submit">Submit</button>
-          <button >
-            <Link to={"/"} style={{textDecoration:'none', color: "black"}}>Return to Home</Link>
-          </button>
         </div>
 
       </form>

@@ -6,3 +6,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.data{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: center;
+    font-size: 15px; 
+}

@@ -5,11 +5,14 @@ const Card = (props) => {
   const singleCard = (i) => {
     return (
       <div className="cards">
-        <img src="./images/image_temp.png" alt="" />
-        <p1>{i.name}</p1>
-        <button>
-          Details
-        </button>
+        <img src="./images/image_temp.png" alt="" />     
+        <div className="data">
+          <p1>{i.name}</p1>
+          <p2>{i.email}</p2>
+          <p2>{i.dob}</p2>
+          <p2>{i.gender}</p2>
+          <p2>{i.ocupation}</p2>
+        </div>
       </div>
     );
   };
