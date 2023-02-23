@@ -16,7 +16,7 @@ const Card = (props) => {
       </div>
     );
   };
-  return <div>{props.user.map(singleCard)}</div>;
+  return (props.user.map(singleCard));
 };
 
 export default Card;

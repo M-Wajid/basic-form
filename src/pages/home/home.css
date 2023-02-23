@@ -1,6 +1,5 @@
-.main{
+.buttons-class{
     display: flex;
-    margin: 10px;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    width: 220px;
 }
